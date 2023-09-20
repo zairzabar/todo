@@ -11,18 +11,21 @@ taskText.forEach((task) => {
   });
 });
 
-// TODO: Need to implement the add task functionality
-// todo: need to change it into a list, so if we add a new task it adds up without replacing the existing task
-// addTaskBtn.addEventListener("click", () => {
-//   taskList.innerHTML = `<div class="task">
-//                 <p class="task-text">${taskInput.value}</p>
-//                 <button class="delete-task"><i class="fa-regular fa-trash-can"></i></button>
-//             </div>`;
-//   taskInput.value = "";
-// });
+addTaskBtn.addEventListener("click", () => {
+  let newTask = document.createElement("div");
+  newTask.classList.add("task");
+  newTask.innerHTML = `
+  <p class="task-text">${taskInput.value}</p>
+  <button class="delete-task"><i class="fa-regular fa-trash-can"></i></button>
+  `;
+  taskList.appendChild(newTask);
 
-deleteTaskBtn.forEach((task) => {
-  task.addEventListener("click", () => {
-    task.parentElement.remove();
-  });
+  taskInput.value = "";
 });
+
+// todo: need to figure out how to get the dynamically added html
+// deleteTaskBtn.forEach((task) => {
+//   task.addEventListener("click", () => {
+//     task.parentElement.remove();
+//   });
+// });
